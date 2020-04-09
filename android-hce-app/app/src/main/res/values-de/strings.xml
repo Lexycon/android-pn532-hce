@@ -1,0 +1,5 @@
+<resources>
+    <string name="button_generate">Neue ID generieren</string>
+    <string name="nfc_unsupported">Gerät unterstützt NFC nicht? :-(</string>
+    <string name="nfc_deactivated">Vergiss nicht NFC zu aktivieren!</string>
+</resources>
