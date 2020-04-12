@@ -4,6 +4,7 @@ import android.nfc.cardemulation.HostApduService
 import android.os.Bundle
 import android.util.Log
 
+
 class HostCardEmulatorService: HostApduService() {
     companion object {
         val TAG = "Host Card Emulator"
@@ -46,7 +47,7 @@ class HostCardEmulatorService: HostApduService() {
 
         if (hexCommandApdu.substring(10, 24) == AID) {
             // we wont return 90 00, we respond with our uid
-            // return Utils.hexStringToByteArray(STATUS_SUCCESS)
+            // return ByteArrayHexUtil.hexStringToByteArray(STATUS_SUCCESS)
             val dataStore = DataStoreUtil(this);
             val uid = dataStore.getID();
             return ByteArrayHexUtil.hexStringToByteArray(uid)
