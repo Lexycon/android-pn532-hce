@@ -20,7 +20,7 @@ Installing the android app will register an APDU service with an AID (in this ex
 This is running on my Pi. The PN532 board needs to be connected via UART (because i2c / spi is not supported by nfcpy lib which will be used). Check some tutorials for this, if you haven't connected it yet.
 In this example libnfc is not neccessary.
 
-### Setup
+### Install & Run
 
 install pip3 if not installed:
 
@@ -34,9 +34,14 @@ install nfcpy:
 pip3 install -U nfcpy
 ```
 
-### Run
+Clone this repository:
 
-Check the main.py file. It's an example how to use the PN532 class.
+```
+git clone https://github.com/Lexycon/android-pn532-hce.git
+cd android-pn532-hce
+```
+
+And finally run the main.py file. It's an example how to use the PN532.py class.
 
 ```python
 python3 main.py
@@ -45,4 +50,5 @@ python3 main.py
 ## Android
 
 Either build this whole project by your own or use the prebuilt apk: [releases](https://github.com/Lexycon/android-pn532-hce/releases)
+
 Copy the apk file to the phone and install it. The UI shows the generated uid. Delete application data to get a new id.
