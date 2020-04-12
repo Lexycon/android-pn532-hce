@@ -1,6 +1,6 @@
 # android-pn532-hce
 
-Communicate between PN532 (I used a Raspberry Pi) and android to receive a unique id (uid) of the android device (for auth, whatever). Simple nfc tags like smart card and chip (which will often be shipped with the PN532) will work too.
+Python NFC example for PN532 to receive a unique id (uid) of an android device or simple nfc tags (for auth, whatever).
 
 ## Concept
 
@@ -13,7 +13,7 @@ Default: Card Reader sends APDU (Application Protocol Data Unit Command) -> tag 
 Issue: Android device responds with either '01020304' or different id every time you hold it to the reader.
 Solution: Android allows Host-based Card Emulation (HCE), so it may behave like a simple nfc tag / smart card. It can take APDU commands and return APDU responses.
 
-Installing the android app will register an APDU service with an AID (in this example 'A0000001020304'). The reader (PN532) sends an APDU command containing this AID, the android device executes our registered service and sends back a local generated id (stored/persistent). No need to run the app after installation, service will do the job in background. Device can be locked, but screen needs to be on (android security policy).
+Installing the android app will register an APDU service with an AID (in this example 'A0000001020304'). The reader (PN532) sends an APDU command containing this AID, the android device executes our registered service and sends back a local generated unique id (stored/persistent). No need to run the app after installation, service will do the job in background. Device can be locked, but screen needs to be on (android security policy).
 
 ## PN532
 
@@ -45,5 +45,4 @@ python3 main.py
 ## Android
 
 Either build this whole project by your own or use the prebuilt apk: [releases](https://github.com/Lexycon/android-pn532-hce/releases)
-
-Copy the apk file to the phone and install it. The UI shows the uid and allows you to generate a new one (whyever :-D)
+Copy the apk file to the phone and install it. The UI shows the generated uid. Delete application data to get a new id.
