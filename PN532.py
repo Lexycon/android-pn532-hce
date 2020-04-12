@@ -23,15 +23,16 @@ class PN532:
 
     def listen(self):
         try:
-            # returns false if CTRL+C pressed, waits until tag detected
             return self.clf.connect(rdwr={
                 'on-connect': self.__connected,
                 'on-discover': lambda target: True,
             })
-        except Exception:
-            # connection failed / timed out, reset connection
+        except Exception as e:
+            print(e)
+            # probably connection failed / timed out, reset connection
             self.close()
             self.__setup()
+            return True
 
 
 class TagHandler:
