@@ -46,8 +46,9 @@ class HostCardEmulatorService: HostApduService() {
         }
 
         if (hexCommandApdu.substring(10, 24) == AID) {
-            // we wont return 90 00, we respond with our uid
+            // we wont return success 90 00, we respond with our uid
             // return ByteArrayHexUtil.hexStringToByteArray(STATUS_SUCCESS)
+
             val dataStore = DataStoreUtil(this);
             val uid = dataStore.getID();
             return ByteArrayHexUtil.hexStringToByteArray(uid)

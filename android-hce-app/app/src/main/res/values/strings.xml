@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">NFC Emulate</string>
+    <string name="app_name" translatable="false">NFC UID</string>
     <string name="servicedesc" translatable="false">Description</string>
     <string name="aiddescription" translatable="false">AID Description</string>
-    <string name="button_generate">Generate new ID</string>
+    <string name="id_label" translatable="false">ID:</string>
+    <string name="nfc_disabled">NFC is disabled. Do you want to enable it?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
     <string name="nfc_unsupported">Device does not support NFC? :-(</string>
-    <string name="nfc_deactivated">Don\'t forget to activate NFC!</string>
 </resources>

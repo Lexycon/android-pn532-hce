@@ -6,15 +6,9 @@ import android.content.SharedPreferences
 import java.util.*
 
 class DataStoreUtil(context: Context) {
-    companion object {
-        private val ALLOWED_CHARACTERS = "0123456789ABCDEF"
-        private val PREFS_FILENAME = "com.lexycon.hostcardemulation.prefs"
-        private var prefs: SharedPreferences? = null
-    }
-
-    init {
-        prefs = context.getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE)
-    }
+    private val ALLOWED_CHARACTERS = "0123456789ABCDEF"
+    private val PREFS_FILENAME = "com.lexycon.hostcardemulation.prefs"
+    private var prefs: SharedPreferences? = context.getSharedPreferences(PREFS_FILENAME, MODE_PRIVATE)
 
     public fun getID(): String {
         var uid = prefs!!.getString("uid", null)
@@ -26,13 +20,13 @@ class DataStoreUtil(context: Context) {
         return uid;
     }
 
-    public fun saveID(uid: String) {
+    private fun saveID(uid: String) {
         val editor = prefs!!.edit()
         editor.putString("uid", uid)
         editor.apply()
     }
 
-    public fun generateID(sizeOfRandomHexString: Int = 12): String {
+    private fun generateID(sizeOfRandomHexString: Int = 12): String {
         val random = Random()
         val sb = StringBuilder(sizeOfRandomHexString)
         for (i in 0 until sizeOfRandomHexString)
